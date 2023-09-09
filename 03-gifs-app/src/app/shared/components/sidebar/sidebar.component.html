@@ -1,20 +1,18 @@
-<!-- <div class="colorSidebar " id="sidebar">
-    
-    <hr class="text-white">
-    <div class="list-group list-reset">
-        <button *ngFor="let tag of tags" class="list-group-item list-group-item-action">
-            {{tag | titlecase}}
-        </button>
+<mat-drawer-container>
+  <mat-drawer-content id="sidebar">
+    <h1 class="title">Gifs app</h1>
+    <hr>
+    <div class="flex flex-column px-6 py-3 gap-2">
+      <button class="buttonSidebar" (click)="historySearch(tag); setTagSearch = tag" *ngFor="let tag of getTags"
+        mat-stroked-button>
+        {{tag | titlecase}}
+      </button>
     </div>
-</div> -->
-<mat-drawer-container class="colorSidebar">
-    <mat-drawer-content id="sidebar">
-        <h1 class="title">Gifs app</h1>
-        <hr>
-        <div class="containerButton">
-            <button class="buttonSidebar" *ngFor="let tag of tags" mat-stroked-button>
-            {{tag | titlecase}}
-            </button>
-        </div>
-    </mat-drawer-content>
+    <hr *ngIf="getTags.length !== 0" class="animate__animated animate__fadeIn">
+    <div *ngIf="getTags.length !== 0" class="flex justify-content-center pt-3 animate__animated animate__fadeIn">
+      <button mat-raised-button color="accent" (click)="clearHistory()">
+        Limpiar historial
+      </button>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

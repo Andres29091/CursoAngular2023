@@ -9,15 +9,19 @@ export class SearchBoxComponent {
 
   @ViewChild('txtTagInput')
   public tagInput!: ElementRef<HTMLInputElement>
+  public limit: string = '10';
 
   constructor(
     private _gifsService: GifsService
   ) { }
 
-  // searchTag(newTag: string) {
+  get getTag(): string {
+    return this._gifsService.getTag
+  }
+
   searchTag() {
     const newTag = this.tagInput.nativeElement.value
+    this._gifsService.setLimit = this.limit;
     this._gifsService.searchTag(newTag);
-    this.tagInput.nativeElement.value = '';
   }
 }

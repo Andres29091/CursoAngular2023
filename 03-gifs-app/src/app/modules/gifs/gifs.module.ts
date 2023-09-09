@@ -3,21 +3,22 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './pages/homepage/home-page.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { CardListComponent } from './components/card-list/card-list.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { MaterialModule } from 'src/app/material/material.module';
+import { GifsCardComponent } from './components/gifs-card/gifs-card.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 @NgModule({
   declarations: [
     HomePageComponent,
     SearchBoxComponent,
-    CardListComponent
+    CardListComponent,
+    GifsCardComponent
   ],
   imports: [
     CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule
+    MaterialModule,
+    SharedModule
   ],
   exports: [
     HomePageComponent

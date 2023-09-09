@@ -1,10 +1,22 @@
-<!-- <input type="text" 
-  class="form-control" 
-  placeholder="Buscar gifs..." 
-  (keyup.enter)="searchTag()" 
-  #txtTagInput> -->
 <h2>Buscar</h2>
-<mat-form-field style="width: 100%;">
-    <mat-label>Buscar gifs...</mat-label>
-    <input matInput type="text" (keyup.enter)="searchTag()" #txtTagInput>
-</mat-form-field>
+<div class="flex">
+  <div class="col-4">
+    <mat-form-field style="width: 100%;">
+      <mat-label>Buscar gifs...</mat-label>
+      <input matInput type="text" (keyup.enter)="searchTag()" [value]="getTag | titlecase" #txtTagInput>
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="searchTag()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="col-2 md:col-2 lg:col-2 xl:col-2">
+    <mat-form-field style="width: 100%;">
+      <mat-label>Limite</mat-label>
+      <mat-select [(value)]="limit">
+        <mat-option value="10">10</mat-option>
+        <mat-option value="20">20</mat-option>
+        <mat-option value="30">30</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
